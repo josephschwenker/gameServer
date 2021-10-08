@@ -215,3 +215,40 @@ Effect {
     }
   }
 }
+
+Effect {
+  targets: EffectTargetType {
+
+  }
+}
+
+myEffect.yield(
+  {
+    tile: myTile
+  }
+)
+returns {
+  food: EffectResultModifier
+  minerals: EffectResultModifier
+}
+
+EffectResult.add(er1, er2)
+
+effectResult1.add(effectResult2)
+
+targets {
+	food
+	minerals
+}
+
+const effectResult = {}
+Object.keys(this.targets)
+.map(
+  (key) => {
+    effectResult[key] = 
+  }
+)
+
+{
+  food: EffectResultModifier
+}

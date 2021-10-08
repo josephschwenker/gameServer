@@ -1,8 +1,8 @@
-import EffectParameters from './EffectParameters'
+import { EffectParameters } from './Effect'
 
-interface EffectModifier {
-  add: (options: EffectParameters) => number
-  multiply: (options: EffectParameters) => number
+interface EffectModifier<EffectParametersSubtype extends EffectParameters> {
+  add: (options: EffectParametersSubtype) => number
+  multiply: (options: EffectParametersSubtype) => number
 }
 
 export default EffectModifier
