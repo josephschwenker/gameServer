@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Abyss</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<!-- MAP -->
+		<div id="map"></div>
+		<!-- MENUBAR -->
+		<div id="menubar">
+			<span class="menubarButton button" id="menubarButton_agriculture">
+				<span class="menubarButton_icon" id="menubarButton_agricultureIcon"></span>
+				<span class="menubarButton_caption">92 (+2)</span>
+			</span>
+			<span class="menubarButton button" id="menubarButton_industry">
+				<span class="menubarButton_icon" id="menubarButton_industryIcon"></span>
+				<span class="menubarButton_caption">0 free</span>
+			</span>
+			<span class="menubarButton button" id="menubarButton_science">
+				<span class="menubarButton_icon" id="menubarButton_scienceIcon"></span>
+				<span class="menubarButton_caption">3 turns</span>
+			</span>
+			<span class="menubarButton button" id="menubarButton_economy">
+				<span class="menubarButton_icon" id="menubarButton_economyIcon"></span>
+				<span class="menubarButton_caption">16 (+10)</span>
+			</span>
+			<span class="menubarButton button" id="menubarButton_morale">
+				<span class="menubarButton_icon" id="menubarButton_moraleIcon"></span>
+				<span class="menubarButton_caption">74%</span>
+			</span>
+			<span class="menubarButton button" id="menubarButton_demographics">
+				<span class="menubarButton_icon" id="menubarButton_demographicsIcon"></span>
+				<span class="menubarButton_caption">160 (+1)</span>
+			</span>
+			<span class="menubarButton button" id="menubarButton_government">
+				<!-- dynamically populated -->
+				<span class="menubarButton_icon" id="menubarButton_governmentIcon"></span>
+				<span class="menubarButton_caption">Government</span>
+			</span>
+		</div>
+		<!-- SIDEBAR -->
+		<div id="sidebar" class="open">
+			<div id="sidebar_header">
+				<span id="sidebar_backButton" class="button">
+					<div id="sidebar_backButton_backgroundImage"></div>
+				</span>
+				<span id="sidebar_categoryName">Facilities</span>
+			</div>
+			<div id="sidebar_title" class="sidebar_titleCritical">
+				Hydroculture A0
+			</div>
+			<div id="sidebar_iconContainer">
+				<span id="sidebar_gridBackground" class="sidebar_gridCriticalStatus"></span>
+				<span id="sidebar_grid"></span>
+				<span id="sidebar_icon" class="sidebar_icon_hydroculture"></span>
+				<span id="sidebar_statusIcon"></span>
+			</div>
+			<div id="sidebar_button" style="display: none;">
+				Construct
+			</div>
+			<div id="sidebar_status_title" class="sidebar_troughTitle">
+				Status
+			</div>
+			<div id="sidebar_status_trough" class="sidebar_trough">
+				This facility is taking on water.
+			</div>
+			<div id="sidebar_workforce_title" class="sidebar_troughTitle">
+				Workforce
+			</div>
+			<div id="sidebar_workforce_trough" class="sidebar_trough">
+				<div class="sidebar_trough_calculationArrow"></div>
+				<div class="sidebar_trough_total">100%</div>
+				<span class="sidebar_troughIcon_container">
+					<span class="sidebar_troughIcon worker_nuclearEngineer"></span>
+				</span>
+				<span class="sidebar_troughIcon_container">
+					<span class="sidebar_troughIcon worker_nuclearEngineer"></span>
+				</span>
+				<span class="sidebar_troughIcon_container">
+					<span class="sidebar_troughIcon worker_nuclearEngineer"></span>
+				</span>
+			</div>
+			<div id="sidebar_input_title" class="sidebar_troughTitle">
+				Inputs
+			</div>
+			<div id="sidebar_input_trough" class="sidebar_trough">
+				<span class="sidebar_troughIcon_container">
+					<span class="sidebar_troughIcon resource_water"></span>
+					<span class="sidebar_troughIconCaption">15</span>
+				</span>
+				<span class="sidebar_troughIcon_container">
+					<span class="sidebar_troughIcon resource_buildingMaterials"></span>
+					<span class="sidebar_troughIconCaption">1</span>
+				</span>
+			</div>
+			<div id="sidebar_output_title" class="sidebar_troughTitle">
+				Outputs
+			</div>
+			<div id="sidebar_output_trough" class="sidebar_trough">
+				<span class="sidebar_troughIcon_container">
+					<span class="sidebar_troughIcon resource_food"></span>
+					<span class="sidebar_troughIconCaption">15</span>
+				</span>
+			</div>
+			<div id="sidebar_effects_title" class="sidebar_troughTitle">
+				Effects
+			</div>
+			<div id="sidebar_effects_trough" class="sidebar_trough">
+				<div class="sidebar_trough_calculationArrow"></div>
+				<div class="sidebar_trough_total">100%</div>
+				<span class="sidebar_troughIcon_container">
+					<span class="sidebar_troughIcon government_psychosocialFascism"></span>
+					<span class="sidebar_troughIconCaption"></span>
+				</span>
+				<span class="sidebar_troughIcon_container">
+					<span class="sidebar_troughIcon action_haltProduction"></span>
+					<span class="sidebar_troughIconCaption"></span>
+				</span>
+			</div>
+		</div>
+		<!-- END TURN dialogButton -->
+		<div id="endTurnButton" class="actionButton button">
+			End Turn
+		</div>
+		<!-- ACTION BUTTONS -->
+		<div id="actionButton_container">
+			<div id="actionButton_openSidebar" class="actionButton button">
+				<div class="actionButton_backgroundImage"></div>
+			</div>
+			<div id="actionButton_haltProduction" class="actionButton button">
+				<div class="actionButton_backgroundImage"></div>
+			</div>
+			<div id="actionButton_destroy" class="actionButton button">
+				<div class="actionButton_backgroundImage"></div>
+			</div>
+		</div>
+		<!-- MINIMAP -->
+		<div id="minimap_container">
+			<div id="minimap_dropdown">
+				(0) Sea Level
+			</div>
+			<div id="minimap"></div>
+		</div>
+		<!-- NOTIFICATION PANE -->
+		<div id="notificationPane">
+			<div class="notification open">
+				<div class="notification_advisor notification_advisor_science"></div>
+				<div class="notification_content">
+					<div class="notification_message">An allied faction has modified their form of government.</div>
+					<div class="notification_buttonContainer">
+						<div class="dialogButton button notificiation_openButton">Dismiss</div>
+						<div class="dialogButton button notification_closeButton">Open Panel</div>
+					</div>
+				</div>
+			</div>
+			<div class="notification open">
+				<div class="notification_advisor notification_advisor_science"></div>
+				<div class="notification_content">
+					<div class="notification_message">An extremist demographic population has reached critical levels.</div>
+					<div class="notification_buttonContainer">
+						<div class="dialogButton button notificiation_openButton">Dismiss</div>
+						<div class="dialogButton button notification_closeButton">Open Panel</div>
+					</div>
+				</div>
+			</div>
+			<div class="notification open">
+				<div class="notification_advisor notification_advisor_science"></div>
+				<div class="notification_content">
+					<div class="notification_message">Scientific output has stagnated.</div>
+					<div class="notification_buttonContainer">
+						<div class="dialogButton button notificiation_openButton">Dismiss</div>
+						<div class="dialogButton button notification_closeButton">Open Panel</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="script.js"></script>
+	</body>
+</html>

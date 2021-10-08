@@ -1,0 +1,54 @@
+TODO
+	Convert to model-view-controller
+		Separate View, Controller for each UI element?
+			MapModel, MapView, MapController
+	Port Model to Node.js
+	Port View to React
+	
+	Do not display "next unit" while base control open
+	Animations on units when moving:
+		Cannot simply clear the map and redraw it
+		A: Pieces are contained in an overlay with position: fixed. When they are created, the View puts them in the pieceContainer where they stay until the unit is disbanded or destroyed. When rendering, the positions are animated from one tile to the next like in Pandora: First Contact. NOT in a direct line. Thus the transition will have to have steps and "scoot" to each intermediate position.
+		We will need to re-initialize on every window paint.
+	Slide units from one tile to the next when moving (position: absolute)
+	Units should be centered in tile
+	Queue moves for next turn
+			Do not store path, just recompute the shortest path
+	Show lines
+		Animated thick light blue dotted line, dotts move like marching ants
+	Slight delay between moving units between tiles when using mouse movement
+	Calculate base tiles by radius instead of hard-coded values
+	
+	Replace structures array with pointer to a ResourceStructure
+	Bug: "Improvement already exists" instead of "Terraform complete"
+	Make actions and status variables on the Game object
+	Switch coordinates to x, y, z instead of z, y, x
+	Structures of different classes can stack: ResourceStructure, MovementStructure, MilitaryStructure, ExtraResourceStructure
+	Verify multiple engineers aggregate work correctly
+		turns remaining should never be less than 1
+		make totalProgress a static variable of the class
+		un-assign all assigned units when one unit finishes production
+		moving an engineer revokes its assignment
+	Should not be able to "overwrite" city by building one on an existing one
+	Prohibit bases from harvesting the same resource tiles, oldest base takes precedence
+	Show outline of base radius before confirming build
+	Show message log: population growth, production complete, terraform complete, structure already exists, etc.
+	Population growth
+	Base radius grows with population
+	Accumulate nutrients/credits/minerals
+	Research
+	Society modules
+	Unit designer: mixins, Object.prototype.assign(target, source)
+	Economy bonus to cities connected with roads, attenuates exponentially with distance
+	AI-controlled players
+	Save/restore using Game object
+	
+	Modify interface mockup, implement blurred background effect, merge with prototype
+	Preload all files automatically
+	Base control should display around base
+	
+	Write to filesystem
+	Multiplayer
+	Convert to TypeScript
+	Port to Unity
+		3D graphics

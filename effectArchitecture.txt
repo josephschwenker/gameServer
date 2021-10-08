@@ -1,0 +1,217 @@
+Tile {
+  features: 
+}
+
+Faction effect: +25% to food production
+
+Technology effect: Flotation Farms produce +1 extra food
+  FlotationFarm.effect.conditions = (
+    {
+      tile
+    }
+  ) => {
+    tile.structure instanceof FlotationFarm
+  }
+  add: 1
+Structure effect: Tiles within one tile of a condensor produce +1 food
+  HybridForest.effect.conditions = (
+    tile,
+  ) => {
+    return tile instanceof Forest
+  }
+Society Module effect: -10% to food production
+  PsychosocialFascism.effect.conditions = () => true
+  multiply: 0.9
+Economy effect: +10% to credits
+
+Occupied effect: 0% to all yield
+
+Additive bonuses first, then multiplicative bonuses
+
+Flanking effect: -10% to defense for each enemy unit on a neighboring tile after the first if this unit is not in a friendly city
+  applies: (
+    {
+      tile: Tile
+      unit: Unit
+      diplomacy: Diplomacy
+    }
+  ) => {
+    tile.getNeighbors()
+    .map(
+      (neighbor) => {
+        neighbor.units.find(
+          (otherUnit) => diplomacy.getRelationship(unit.player, otherUnit.player) === War
+        )
+      }
+    )
+    .length > 0
+  }
+  defense: {
+    add: (options) => 0
+    multiply: (options) => {
+      1 - 0.1 *
+      (
+        options.tile.getNeighbors()
+        .map(
+          (neighbor) => {
+            neighbor.units.find(
+              (otherUnit) => diplomacy.getRelationship(unit.player, otherUnit.player) === War
+            )
+          }
+        )
+        .length - 1
+      )
+    }
+  }
+
+Effect {
+  conditions: (
+    {
+      tile: Tile,
+      unit: Unit
+    }
+  ) => boolean
+  food: {
+    add: 0
+    multiply: 1
+  }
+  minerals: {
+    add: 0
+    multiply: 1
+  }
+  attack: {
+    add: 0
+    multiply: 1.25
+  }
+}
+
+Apply effects in order specified in Game. Addition first, multiplication second. Order does not matter since both addition and multiplication are commutative.
+additiveEffect =       Terrain + Structure + TransportationFeature + SpecialFeature + Facility + TechnologyBonus + FactionBonus + EconomyEffect
+multiply =  same as above, but with multiplication
+
+Tile {
+  tileFeatures {
+    structure {
+      effect: Effect
+    }
+  }
+}
+
+Effect {
+  yields(effectOptions): EffectResult {
+
+  }
+
+}
+
+interface effectOptions {
+  tile: Tile
+
+}
+
+EffectResult {
+  static add (...tiles: Tile[]) {
+    tiles.reduce(
+      ...
+    )
+  }
+}
+
+myTile.getTileOutput(tile)
+
+Game.getTileOutput(
+  tile
+) {
+  return Effect.add(
+    [
+      tile.tileFeatures.terrain,
+      tile.tileFeatures.structure
+      tile.tileFeatures.specialFeature
+      tile.tileFeatures.transportationFeature
+      tile.owner.societyModules.governmentModule
+      tile.owner.societyModules.economicModule
+      tile.owner.societyModules.valueModule
+    ]
+    .map(
+      (hasEffect) => hasEffect.effect.yields(effectOptions)
+    )
+  )
+}
+
+Fort {
+  effect: {
+    yields: (EffectParameters) => EffectResult
+    food: {
+      add: (EffectParameters) => 0
+      multiply: (EffectParameters) => 1
+    }
+    defense: {
+      add: (EffectParameters) => 0
+      multiply: (EffectParamters) => {
+        EffectParameters.unit instanceof Trooper ? 1.25 : 1
+      }
+    }
+  }
+}
+
+TileEffectParameters {
+
+}
+
+UnitEffectParameters {
+
+}
+
+Game.getMilitaryOutput(trooperSkimmer)
+  Faction
+    UnitEffect
+      +25% attack
+  Tile
+    TileFeature
+      Terrain
+        Forest
+          UnitEffect
+            +25% defense
+  Morale
+    UnitEffect
+      -10% attack
+
+Game.getMilitaryOutput (
+  options: UnitEffectParameters {
+    unit,
+    tile
+  }
+) {
+  return Effect.add(
+    [
+      tile.tileFeatures.terrain,
+      tile.tileFeatures.structure
+      tile.tileFeatures.specialFeature
+      tile.tileFeatures.transportationFeature
+      tile.owner.societyModules.governmentModule
+      tile.owner.societyModules.economicModule
+      tile.owner.societyModules.valueModule
+      tile.owner.morale
+    ]
+    .map(
+      (hasUnitEffect) => hasUnitEffect.effect.yields(unitEffectParameters)
+    )
+  )
+}
+
+Effect {
+  static add (...effects) {}
+
+  constructor
+}
+
+Effect {
+  constructor(
+    EffectParameters
+    EffectTarget
+  ) {
+    return new class {
+      
+    }
+  }
+}

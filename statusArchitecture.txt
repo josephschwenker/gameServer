@@ -1,0 +1,68 @@
+Status
+  CityStatus
+    No Production (Infinity turns)
+    Constructing Industrial Base (3 turns)
+  UnitStatus
+    Moving to (3, 5, 0)
+    Awaiting Orders
+    Holding Position
+    Sentrying
+    Garrisonning
+    EngineerStatus
+      Constructing Flotation Farm (2 turns)
+      Awaiting Orders
+    MilitaryStatus
+      Attacking (3, 5, 0) (57% Success, 90% Friendly Casualties, 100% Enemy Casualties)
+      Moving to (3, 5, 0)
+
+IdleStatus {
+  name: "Awaiting Orders"
+  effect: UnitEffect
+  icon: "awaitingOrders.png"
+}
+
+NoProduction {
+  name: "No Production"
+  effect: TileEffect
+  icon: "noProduction.png"
+}
+
+NonIdleStatus {
+  ${verb}
+  ${verb} ${coordinate.toString()}
+}
+
+MoveStatus {
+  name: (c: ValidCoordinate) => `Moving to ${c.toString()}`
+  icon: "moving.png"
+  effect: UnitEffect
+}
+
+AttackMove {
+  static gerundName: (c: ValidCoordinate) => `Attacking ${c.toString() without moving}
+  static infinitiveName: (c: ValidCoordinate) => `Attack ${c.toString() without moving}`
+  icon: "attack.png"
+  effect: UnitEffect
+}
+
+myUnit.statuses[0].gerundName(myUnit.statuses[0].parameters)
+
+myUnit.statuses.push(
+  new AttackMove(
+    options: {
+      c: ValidCoordinate
+    }
+  )
+)
+
+RaiseTerrain {
+
+}
+
+myEngineer.statuses.push(
+  new RaiseTerrain(
+    options: {
+
+    }
+  )
+)

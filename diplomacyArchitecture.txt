@@ -1,0 +1,33 @@
+Game.diplomacy: Diplomacy
+
+Diplomacy {
+  constructor(
+    {
+      players: Player[]
+    }
+  ) {
+    // construct one bidirectional link for each possible pair of players representing their current diplomatic standing
+    p1 <-> p2
+    p1 <-> p3
+    p1 <-> p4
+    this.relationships = map{
+      p1 = map{__, p2, p3, p4}
+      p2 = map{p1, __, p3, p4}
+      p3 = map{p1, p2, __, p4}
+      p4 = map{p1, p2, p3, __}
+    }
+  }
+
+  relationship(player1: Player, player2: Player) {
+    if player1 === player2 {
+      return Allied
+    }
+    if this.relationships
+  }
+}
+
+interface Relationship {
+  name: string
+}
+
+

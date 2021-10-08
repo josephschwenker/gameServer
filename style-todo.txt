@@ -1,0 +1,21 @@
+Hide box shadow on sidebar when not open
+Introduce variables for transition times: enter (0.25s), exit (0.125s)
+Introduce global transition scale factor variable
+Introduce global variable for transition delay
+Keep notifications open for 1s after mouseout
+Center category name within parent element (use container div, position relative to absolute parent)
+Notifications fade out as they go up and disappear off the screen behind the top menubar
+Add transparent margin to action buttons, Fitt's law
+
+CRT scanlines on advisor, facility display in sidebar
+Typewriter effect on text in notifications
+Add tooltips
+Fix box shadow overlap on sidebar
+Convert icons to grayscale
+Animation: background image on button explodes and fades out when release button (use JavaScript, multiple background images)
+
+Confirm dialog animation: pseudo element dims background, confirm dialog scales up in front
+Interface for assigning workers to unassigned facility
+Data visualization view (resources, population, depth-height)
+Planning mode
+Depth view (per tile?)

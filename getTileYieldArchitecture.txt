@@ -1,0 +1,107 @@
+import getTileYield from './Game'
+
+City {
+  this.getTileYield: getTileYield
+}
+
+Yield {
+  food: number
+  minerals: number
+}
+
+Game {
+  getTileYield(tile) {
+    return tile.features
+  }
+
+  const unit = this.unitList.add(vehicles[0])
+  unit.buildCity(
+    {
+      getTileYield: ???
+    }
+  )
+
+  Game.getTileYield(tile)
+}
+
+City {
+  constructor (
+    options: {
+      getTileYield
+    }
+  ) {
+    this.getTileYield = options.getTileYield
+  }
+
+  getTileYield: ...
+
+  getYield() {
+    this.claimedTiles.reduce(
+      ...
+    )
+  }
+}
+
+City.getTotalYield() {
+  city.tiles()
+  .map(
+    (tile) => tile.getYield() {
+      Game.getTileYield(tile) {
+
+      }
+    }
+  )
+}
+
+Game.getTileOutput(
+  parameters: TileEffectParameters {
+    tile: Tile
+) {
+  return Effect.add(
+    [
+      tile.tileFeatures.terrain,
+      tile.tileFeatures.structure
+      tile.tileFeatures.specialFeature
+      tile.tileFeatures.transportationFeature
+      tile.owner.societyModules.governmentModule
+      tile.owner.societyModules.economicModule
+      tile.owner.societyModules.valueModule
+    ]
+    .map(
+      (hasEffect) => hasEffect.effect.yields(effectOptions)
+    )
+  )
+}
+
+Where is getTileOutput called from?
+
+myCity.productionQueue.build(
+    EffectResult.add(
+      this.claimedTiles
+      .map(
+        (tile) => tile.getOutput()
+      )
+    )
+)
+
+// other option: access only from Game object
+// end of turn, advance all production queues for all cities
+Game.cities
+.map(
+  (city) => city.productionQueue.build(
+    EffectResult.add(
+      city.claimedTiles
+      .map(
+        (tile) => tile.getOutput(
+          {
+            tile: tile
+          }
+        )
+      )
+    )
+  )
+)
+
+myTile.getOutput() {
+  // "this" is the tile, no need for other options
+}

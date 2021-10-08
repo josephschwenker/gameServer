@@ -1,0 +1,151 @@
+General:
+
+The game will be an empire-scale 4X game, similar to Sid Meier's Alpha Centauri, Pandora: First Contact, or Call to Power 2.
+There will be at least five layers in the game: ocean trench, seafloor, ocean shelf, sea level, and orbital.
+The game map will be made up of square tiles transformed into a torus that behaves like a sphere, similar to the SphereTest mod for MineTest.
+
+Cities:
+Resources may be harvested at each layer, but cannot be convoyed to the city unless there is a road connection.
+Resources may not be convoyed to a city if the distance from the city exceeds 2 tiles. This distance limit does not carry over between layers.
+Cities have a population limit that may be raised by building facilities and researching technologies.
+The amount of resources harvested is proportional to the city's population: for example, a city with a total of 10 resources and a population of 1 may only receive 1/10 of the total resources, or 1 resource.
+Workers are not assigned to tiles manually. Instead, all resources with a road connection to the city are taken into account, then scaled by the total population of the city.
+Workers may riot. Rioting workers are subtracted from the population when calculating tile output. For example, a city with a population of 10/10 and 10 food, minerals, and credits but 2 rioting workers would only receive 80% of each resource: 8 food, 8 minerals, and 8 credits.
+Rioting workers may be nerve stapled under certain forms of government.
+Each resource harvested has the population modifier applied to it individually. For example, if a city with a population of 5/10 could harvest 10 food, 5 energy, and 20 minerals, then it will receive 5 food, 3 energy, and 10 minerals.
+After reaching full population, each additional population unit can harvest additional resources beyond what the tiles allow: for example, a city with 10 resources and a population of 15 may receive a 10% bonus on resources for each population unit past 10, or 15 total resources.
+Tiles in different layers cannot be joined with a road connection directly; the tiles in one layer must first be connected to a transporter, which then connects to the city directly above or below.
+Transporters share resources with cities and other transporters directly above and below them.
+Building a transporter above or below a city may unlock new city facilities for construction.
+Transporters may be upgraded to cities by building the appropriate facilities. Upgrading a transporter raises the population limit.
+Cities and transporters along the same vertical axis function as one unit. Only one facility or unit may be produced by one city/transporter axis at the same time. Units appear in the appropriate layer when construction is complete.
+Floating cities may be moved to another tile. While moving, all production and resource output is temporarily suspended.
+
+Terraforming:
+Terraforming is performed on tiles adjacent to a city tile or another terraformed tile connected to a city by other terraformed tiles.
+Structures represent structures that behave like modules connected to the city.
+There are four types of structures: industrial, transportation, military, and miscellaneous.
+Industrial structures modify tile resource output.
+Transportation structures increase the movement speed of any units moving between two tiles with transportation structures.
+Military structures modify fog of war, attack bonuses, defense bonuses, and provide other effects.
+Miscellaneous structures include transporters and habitation domes, and generally provide bonuses to their respective cities similar to a facility.
+Structures must be connected to a city tile, either directly or indirectly.
+Structures of different classes may stack. For example, transportation structures like roads may stack on top of industrial structures like hydrocultures.
+
+Structures must be built by aquaformer/aeroformer.
+Structures have no intial cost nor upkeep.
+There are more resources in layers more distant from sea level, but the infrastructure and technology required to exploit these is more expensive.
+Cities and transporters may be built in ocean trenches, on the ocean floor, at sea level, and in orbit.
+Terraforming may be automated using per-tile or per-city rules.
+Terraforms may be performed automatically in Plan Mode by assigning a terraform to each tile and allowing the game's artificial intelligence to assign aquaformers automatically.
+Terraforms may be performed manually by placing an aquaformer on a tile and assigning it a command.
+
+Facilities:
+Facilities provide passive bonuses to city resource outputs.
+Facilities have an initial cost in minerals and an upkeep cost in credits.
+A global build queue can be created in each game by clicking a button (Add to Global Build Queue). Facilities in the queue will be automatically built at every base in the same sequence.
+The global build queue can be turned on or off for any base individually or for every base at the same time.
+The global build queue can automatically hurry production on facilities where the hurry cost is less than a player-specified threshold.
+
+Units:
+The player will be able to design their own units, choosing a chassis, weapon or equipment module, reactor, and special ability.
+There will be vehical chassis particular to each layer in the game, as well as chassis capable of traveling between two or more layers.
+Units may be garrisonned within a city to defend against attack.
+Units may function as police, preventing riots and emigration if the player's society modules permit this.
+Units may be assigned to a fleet, in which case they will move and receive orders in unison, but no quicker than the speed of the slowest unit.
+At the beginning of each turn, all military units must move before any non-military units.
+
+Technology:
+The technology tree will allow the player to unlock additional technologies.
+New technologies will allow the construction of new base facilities, vehicles, and tile improvements; they will also confer passive bonuses.
+
+Combat:
+All units have four statistics: attack, defense, movement, and health.
+Special abilities, terrain, morale, and demographics may modify military effectiveness.
+The attacking unit's attack*health is compared to the defending unit's defense*health.
+Only one of the units involved in a battle may survive; stalemates are not possible.
+When combat is initiated, each unit takes turns attacking the other unit, doing damage proportional to the attack or defense statistic used. Combat ends when one unit's health reaches 0.
+Units may stack.
+The unit in a stack with the highest defense will defend all other units.
+Units may be grouped into fleets which move in unison.
+
+Government:
+Governments may be built from three distinct categories: politics, economics, and values.
+The forms of government available will change as new technologies are unlocked.
+Each society module offers a distinct modifier to a different gameplay mechanic: for example, fascism may confer an industry bonus while penalizing scientific output.
+
+Demographics:
+The population will be composed of many distinct ideological groups, which confer modifiers on different gameplay mechanics.
+The player's gameplay decisions will alter their population's ideological beliefs.
+The strength of each modifier is proportional to the amount of the population that holds the corresponding ideology.
+Not all modifiers are linear: for example, if Individualists exceed 75% of the population, economic output may be reduced.
+Each demographic group has an opposite.
+Low MORALE and ECONOMY both cause demographic groups to become more fragmented and extreme.
+MORALE and ECONOMY from society modules, facilities, units, and tile improvements are calculated first, and these values are then modified by demographic groups to produce the final values.
+The final MORALE and ECONOMY calculations are used to determine how demographic groups develop; this may cause feedback resulting in cascading changes.
+Extreme demographic groups confer worse modifiers than standard demographic groups.
+High MORALE will cause existing demographic groups to gradually convert to groups corresponding to the player's society module choices.
+Extremist groups take longer to convert to desirable groups.
+//Demographic groups only provide bonuses if the player's society module choices align with their values.
+
+POPULATION:
+Population grows at a rate proportional to the product of ECONOMY and MORALE.
+Population growth is limited by food.
+Surplus food has no effect on population growth.
+Population growth may be modified directly by society module choices.
+
+AGRICULTURE:
+Additional FOOD beyond what is necessary for population growth has no effect on population growth.
+Surplus food is stockpiled up to a maximum determined by the facilities constructed in the city.
+Surplus food can be shared between cities with a road connection if any city in a network is suffering from a food shortfall.
+Surplus food cannot be shared between cities if the road connection is blocked by an enemy combat unit.
+Agriculture bonuses allow more food to be harvested.
+
+INDUSTRY:
+Industry represents the skill of the player's labor force.
+Industry is proportional to how quickly facilities, units, and tile improvements may be completed.
+Industry does not affect the amount of minerals harvested per tile.
+Industry is not affected by ECONOMY directly.
+Additional minerals beyond what is necessary for facility construction have no effect on construction speed.
+Construction may be accelerated for credits.
+Multiple facilities may be built concurrently if enough minerals are available for each. For example, if one facility requires 10 min/turn and and another requires 20 min/turn, both may be completed on time if the city is harvesting 30 min/turn.
+Facilities may be built using minerals from a stockpile. For example, a base with 30 minerals on hold but harvesting 0 minerals/turn may complete a facility that takes 30 minerals at 10 minerals/turn in 3 turns.
+Minerals may be shared between bases with a road connection that is not blockaded.
+
+ECONOMY:
+Economy is proportional the amount of credits harvested per tile.
+Cities receive an additional economy bonus proportional the number of cities of the same faction with a road connection to them. The road connection does not have to be direct; as long as there is a path to the city by road, the city will be factored into the calculation.
+The economy bonus a city receives when connected to another city attenuates exponentially with the distance of the shortest path connecting them.
+Trade bonuses may be blocked if the road connection is occupied by an enemy unit.
+Cities of other factions are also factored into the trade bonus if they have a road connection and if diplomatic relations are in good standing.
+Cities of differing factions that are at war receive no trade bonuses.
+Trade bonuses with cities of other factions are proportional to the  economy of the faction with the least-free market. For example, if a Laissez-Faire (1.00) society trades with a Mixed (0.75) society, both will receive 75% of the maximum bonus.
+Trade bonuses are proportional to the product of the two cities' ECONOMY before trade modifiers.
+Factions may invest in cities if the target city's economic system allows for this.
+Factions may take over cities by acquiring 3/5 ownership.
+Cities may regularly import resources from other factions.
+The price of imported resources may fluctuate with supply, demand, and blockades.
+Cities may only sell resources that they have on hand.
+The player may set the price at which they sell resources.
+Resources are automatically purchased at the lowest price available.
+Factions may issue embargoes.
+
+SCIENCE:
+Science is not harvested like FOOD and MINERALS.
+Science is produced only by cities and facilities.
+Science is funded by credits.
+Facilities may increase the per-credit effiency of scientific research.
+Modifiers to SCIENCE alter the efficiency of credits allocated to science. For example, a Biology Lab may multiply credits toward research by 1.25.
+The amount of credits put into SCIENCE rather than held on reserve can be modified by a slider.
+
+Interface:
+The player may have simple conversations with the advisors for each gameplay mechanic.
+Conversations with advisors sometimes reveal the effects of a certain technology on the player's society.
+Hotkeys will be available for all menu options.
+Hotkeys will be prominently displayed.
+An extensive in-game documentation system will be available with links to entries featured prominently in the interface, similar to Alpha Centauri.
+Clicking on a base will zoom in, visually showing all of the base's facilities and surrounding structures.
+The player may switch between a base's different layers when on the base control screen.
+
+Multiplayer:
+Turns will be simultaneous.

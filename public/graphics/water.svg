@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="256"
+   height="256"
+   viewBox="0 0 67.733332 67.733335"
+   version="1.1"
+   id="svg1414"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="water.svg">
+  <defs
+     id="defs1408" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.5"
+     inkscape:cx="123.74357"
+     inkscape:cy="-19.856947"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata1411">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-229.26665)">
+    <g
+       style="display:inline;fill:#538399;fill-opacity:1;stroke-width:1.57263148"
+       transform="matrix(2.1166637,0,0,2.1166637,-87.989564,-2783.686)"
+       id="layer1-4"
+       inkscape:label="Background">
+      <flowRoot
+         xml:space="preserve"
+         id="flowRoot6174"
+         style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#538399;fill-opacity:1;stroke:none;stroke-width:1.57263148px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         transform="translate(-826.54811,661.84972)"><flowRegion
+           id="flowRegion6176"
+           style="fill:#538399;fill-opacity:1;stroke-width:1.57263148px"><rect
+             id="rect6178"
+             width="196"
+             height="32.5"
+             x="372"
+             y="186.88647"
+             style="fill:#538399;fill-opacity:1;stroke-width:1.57263148px" /></flowRegion><flowPara
+           style="font-size:40px;line-height:1.25;fill:#538399;fill-opacity:1;stroke-width:1.57263148px"
+           id="flowPara6180">ss</flowPara></flowRoot>      <path
+         sodipodi:nodetypes="zzczz"
+         inkscape:connector-curvature="0"
+         id="path12884"
+         d="m 57.566808,1455.4441 c -5.948677,0.03 -9.586241,-4.62 -9.608919,-9.5495 -0.02261,-4.9297 5.526149,-8.8061 9.608919,-22.4504 4.082779,13.6443 9.832928,16.4105 9.608928,22.4504 -0.22401,6.0398 -3.660241,9.5195 -9.608928,9.5495 z"
+         style="opacity:1;fill:#538399;fill-opacity:1;stroke:none;stroke-width:1.57263148;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    </g>
+  </g>
+</svg>
