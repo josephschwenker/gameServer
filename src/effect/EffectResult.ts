@@ -1,35 +1,31 @@
-import EffectResultModifier from './EffectResultModifier'
+import { EffectResultModifier, EffectTargets } from './EffectModifier'
 
-class EffectResult {
-  food: EffectResultModifier
-  minerals: EffectResultModifier
+class EffectResult<EffectTargetsSubtype extends EffectTargets> {
+  targets: { [key in keyof EffectTargetsSubtype]: EffectResultModifier }
 
   constructor (
-    options: {
-      food: EffectResultModifier
-      minerals: EffectResultModifier
-    }
+    targets: { [key in keyof EffectTargetsSubtype]: EffectResultModifier }
   ) {
-    this.food = options.food
-    this.minerals = options.minerals
+    this.targets = targets
   }
 
-  static add = (otherResult: EffectResult): EffectResult => {
-    return new EffectResult(
-      {
-        food: {
-          add: this.food.add + otherResult.food.add,
-          multiply: this.food.multiply + otherResult.food.multiply
-        },
-        minerals: {
-          add: this.minerals.add + otherResult.minerals.add,
-          multiply: this.minerals.multiply + otherResult.minerals.multiply
+  add = (otherResult: EffectResult<EffectTargetsSubtype>): EffectResult<EffectTargetsSubtype> => {
+    const targets: { [key in keyof EffectTargetsSubtype]: EffectResultModifier } = {} as any
+    Object.keys(otherResult.targets)
+      .map(
+        (target): void => {
+          targets[target as keyof EffectTargetsSubtype] = {
+            add: this.targets[target].add + otherResult.targets[target].add,
+            multiply: this.targets[target].multiply + otherResult.targets[target].multiply
+          }
         }
-      }
+      )
+    return new EffectResult<EffectTargetsSubtype>(
+      targets
     )
   }
 
-  static addAll = (results: EffectResult[]): EffectResult => {
+  static addAll = <EffectTargetsSubtype> (results: Array<EffectResult<EffectTargetsSubtype>>): EffectResult<EffectTargetsSubtype> => {
     return results
       .reduce(
         (previous, current) => previous.add(current)

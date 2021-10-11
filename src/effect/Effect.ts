@@ -1,24 +1,19 @@
-import EffectModifier from './EffectModifier'
-import EffectResultModifier from './EffectResultModifier'
+import { EffectParameters, EffectResultModifier, EffectTargets } from './EffectModifier'
+import EffectResult from './EffectResult'
 
-export interface EffectParameters {
-  [key: string]: any
-}
-
-export interface EffectResult {
-  [key: string]: EffectResultModifier
-}
-
-export class Effect<EffectParametersSubtype extends EffectParameters, EffectResultSubtype extends EffectResult> {
+export class Effect<
+  EffectParametersSubtype extends EffectParameters,
+  EffectTargetsSubtype extends EffectTargets,
+> {
   name: string
   icon: string
-  targets: { [key: string]: EffectModifier<EffectParametersSubtype> }
+  targets: EffectTargetsSubtype
 
   constructor (
     options: {
       name: string
       icon: string
-      targets: { [key: string]: EffectModifier<EffectParametersSubtype> }
+      targets: EffectTargetsSubtype
     }
   ) {
     this.name = options.name
@@ -26,17 +21,19 @@ export class Effect<EffectParametersSubtype extends EffectParameters, EffectResu
     this.targets = options.targets
   }
 
-  yield (options: EffectParametersSubtype): EffectResultSubtype {
-    const effectResult: EffectParameters = {}
+  yield (options: EffectParametersSubtype): EffectResult<EffectTargetsSubtype> {
+    const targets: {[key in keyof EffectTargetsSubtype]: EffectResultModifier} = {} as any
     Object.keys(this.targets)
       .map(
         (target) => {
-          effectResult[target] = {
+          targets[target as keyof EffectTargetsSubtype] = {
             add: this.targets[target].add(options),
             multiply: this.targets[target].multiply(options)
           }
         }
       )
-    return effectResult
+    return new EffectResult<EffectTargetsSubtype>(
+      targets
+    )
   }
 }
