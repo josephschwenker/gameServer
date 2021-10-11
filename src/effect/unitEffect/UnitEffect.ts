@@ -1,16 +1,18 @@
 import Tile from '../../Tile'
+import Unit from '../../Unit'
 import { Effect } from '../Effect'
 import { EffectParameters, EffectTargets } from '../EffectTypes'
 
 interface Parameters extends EffectParameters {
+  unit: Unit
   tile: Tile
 }
 
 interface Targets extends EffectTargets {
-  food: any
-  minerals: any
+  attack: any
+  defense: any
 }
 
-type TileEffect = Effect<Parameters, Targets>
+type UnitEffect = Effect<Parameters, Targets>
 
-export default TileEffect
+export default UnitEffect

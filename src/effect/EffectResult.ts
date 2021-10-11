@@ -1,4 +1,4 @@
-import { EffectResultModifier, EffectTargets } from './EffectModifier'
+import { EffectResultModifier, EffectTargets } from './EffectTypes'
 
 class EffectResult<EffectTargetsSubtype extends EffectTargets> {
   targets: { [key in keyof EffectTargetsSubtype]: EffectResultModifier }

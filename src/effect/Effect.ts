@@ -1,4 +1,4 @@
-import { EffectParameters, EffectResultModifier, EffectTargets } from './EffectModifier'
+import { EffectParameters, EffectResultModifier, EffectTargets } from './EffectTypes'
 import EffectResult from './EffectResult'
 
 export class Effect<
@@ -6,17 +6,20 @@ export class Effect<
   EffectTargetsSubtype extends EffectTargets,
 > {
   name: string
+  description: string
   icon: string
   targets: EffectTargetsSubtype
 
   constructor (
     options: {
       name: string
+      description: string
       icon: string
       targets: EffectTargetsSubtype
     }
   ) {
     this.name = options.name
+    this.description = options.description
     this.icon = options.icon
     this.targets = options.targets
   }
