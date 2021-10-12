@@ -1,6 +1,31 @@
+Command
+  UnitCommand
+    Cancel Orders / Idle
+    Sentry
+    Hold Position
+    Disband
+    Move
+    Attack Move
+    EngineerCommand
+    ColonyPodCommand
+  CityCommand
+    Construct
+
+City
+  CityCommandList:
+    Construct Industrial Base
+    Construct Pod Skimmer
+    Raze
+    <Sentinel: No Production>
+
+Frontend
+  Open Base Control
+  Layer Up
+  Layer Down
+
 Status
   CityStatus
-    No Production (Infinity turns)
+    No Production
     Constructing Industrial Base (3 turns)
   UnitStatus
     Moving to (3, 5, 0)
@@ -10,10 +35,11 @@ Status
     Garrisonning
     EngineerStatus
       Constructing Flotation Farm (2 turns)
+      Raising Terrain (9 turns)
       Awaiting Orders
     MilitaryStatus
       Attacking (3, 5, 0) (57% Success, 90% Friendly Casualties, 100% Enemy Casualties)
-      Moving to (3, 5, 0)
+      Moving to (3, 5, 0) (3 turns)
 
 IdleStatus {
   name: "Awaiting Orders"

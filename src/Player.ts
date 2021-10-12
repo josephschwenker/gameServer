@@ -1,5 +1,5 @@
 import Searchable from './utility/Searchable'
-import Faction from './factions/Faction'
+import Faction from './Faction/Faction'
 import List from './utility/List'
 import ResearchItem from './research/ResearchItem'
 

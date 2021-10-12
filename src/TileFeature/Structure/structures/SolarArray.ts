@@ -1,4 +1,4 @@
-import Structure from '../../structure'
+import Structure from '../Structure'
 
 class SolarArray extends Structure {
   name = 'Solar Array';

@@ -1,5 +1,5 @@
-import Fraction from '../utility/Fraction'
-import Status from './Status'
+import Fraction from '../../utility/Fraction'
+import Status from '../Status'
 
 class CityStatus extends Status {
   constructor (options) {

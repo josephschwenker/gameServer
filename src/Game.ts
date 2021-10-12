@@ -5,7 +5,6 @@ import List from './utility/List'
 import Unit from './Unit'
 import City from './City'
 import Coordinate from './utility/TripleVector'
-import Yield from './Yield'
 import Tile from './Tile'
 
 class Game {
@@ -13,8 +12,9 @@ class Game {
   get nextId (): number {
     return this._nextId++
   }
-  // private activePiece: Piece | undefined
+
   private readonly map: GameMap
+// private activePiece: Piece | undefined
   // #nodeMap : NodeMap
   private turn: number = 0
   private units: List<Unit> = new List<Unit>()

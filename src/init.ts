@@ -1,8 +1,8 @@
 import express from 'express'
 import setRoutes from './server/routes'
 import Game from './Game'
-import SolarDynasty from './factions/SolarDynasty'
-import TerraSalvum from './factions/TerraSalvum'
+import SolarDynasty from './Faction/factions/SolarDynasty'
+import TerraSalvum from './Faction/factions/TerraSalvum'
 import Player from './Player'
 
 const PORT = process.env.PORT ?? 5000

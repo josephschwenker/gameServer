@@ -1,8 +1,7 @@
 TODO
 	Convert to model-view-controller
-		Separate View, Controller for each UI element?
-			MapModel, MapView, MapController
 	Port Model to Node.js
+	Use immutable data types in Model
 	Port View to React
 	
 	Do not display "next unit" while base control open
@@ -15,7 +14,7 @@ TODO
 	Queue moves for next turn
 			Do not store path, just recompute the shortest path
 	Show lines
-		Animated thick light blue dotted line, dotts move like marching ants
+		Animated thick light blue dotted line, dots move like marching ants
 	Slight delay between moving units between tiles when using mouse movement
 	Calculate base tiles by radius instead of hard-coded values
 	

@@ -1,8 +1,8 @@
 import Searchable from './utility/Searchable'
 import Piece from './Piece'
 import List from './utility/List'
-import Facility from './facilities/Facility'
-import CityStatus from './status/CityStatus'
+import Facility from './Facility/Facility'
+import CityStatus from './Status/statuses/CityStatus'
 import Player from './Player'
 
 class City implements Piece, Searchable {

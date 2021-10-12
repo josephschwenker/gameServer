@@ -1,4 +1,4 @@
-import Faction from './Faction'
+import Faction from '../Faction'
 
 const SolarDynasty = new Faction(
   {

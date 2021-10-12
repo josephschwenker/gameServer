@@ -1,10 +1,10 @@
 import City from './City'
 import List from './utility/List'
-import Structure from './tileFeatures/Structure'
-import Terrain from './tileFeatures/Terrain'
+import Structure from './TileFeature/Structure/Structure'
+import Terrain from './TileFeature/Terrain/Terrain'
 import Unit from './Unit'
-import TransportationFeature from './tileFeatures/TransportationFeature'
-import SpecialFeature from './tileFeatures/SpecialFeature'
+import TransportationFeature from './TileFeature/TransportationFeature/TransportationFeature'
+import SpecialFeature from './TileFeature/SpecialFeature/SpecialFeature'
 
 class Tile {
   features: {

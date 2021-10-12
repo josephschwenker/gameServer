@@ -25,18 +25,16 @@ export class Effect<
   }
 
   yield (options: EffectParametersSubtype): EffectResult<EffectTargetsSubtype> {
-    const targets: {[key in keyof EffectTargetsSubtype]: EffectResultModifier} = {} as any
-    Object.keys(this.targets)
-      .map(
-        (target) => {
-          targets[target as keyof EffectTargetsSubtype] = {
+    return new EffectResult<EffectTargetsSubtype>(
+      this.targets.reduce(
+        (accumulator: {[key in keyof EffectTargetsSubtype]: EffectResultModifier}, target: keyof EffectTargetsSubtype) => {
+          accumulator[target] = {
             add: this.targets[target].add(options),
             multiply: this.targets[target].multiply(options)
           }
+          return accumulator
         }
       )
-    return new EffectResult<EffectTargetsSubtype>(
-      targets
     )
   }
 }

@@ -1,4 +1,4 @@
-import TileFeature from './TileFeature'
+import TileFeature from '../TileFeature'
 
 interface SpecialFeature extends TileFeature {
 

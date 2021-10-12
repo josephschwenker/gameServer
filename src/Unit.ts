@@ -1,8 +1,8 @@
-import EquipmentModule from './unitModules/EquipmentModule'
-import Fraction from './Fraction'
+import EquipmentModule from './UnitModule/EquipmentModule'
+import Fraction from './utility/Fraction'
 import Piece from './Piece'
-import Status from './status/Status'
-import UnitModule from './unitModules/UnitModule'
+import Status from './Status/Status'
+import UnitModule from './UnitModule/UnitModule'
 
 class Unit implements Piece {
   id: number

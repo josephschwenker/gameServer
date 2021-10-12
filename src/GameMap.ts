@@ -1,6 +1,6 @@
 import Tile from './Tile'
-import OpenOcean from './tileFeatures/terrain/OpenOcean'
-import FlotationFarm from './tileFeatures/structures/FlotationFarm'
+import OpenOcean from './TileFeature/Terrain/terrain/OpenOcean'
+import FlotationFarm from './TileFeature/Structure/structures/FlotationFarm'
 import Tile from './Tile'
 
 class GameMap {
