@@ -11,7 +11,7 @@ abstract class Command<EffectParametersSubtype, EffectTargetsSubtype> {
   shortcut: KeyboardShortcut
   effect: Effect<EffectParametersSubtype, EffectTargetsSubtype>
   commandParameters: CommandParameters
-  available: (options: CommandParameters) => boolean
+  isAvailable: (options: CommandParameters) => boolean
   do: (options: CommandParameters) => Game
   progress: (options: CommandParameters) => Progress
 
@@ -34,7 +34,7 @@ abstract class Command<EffectParametersSubtype, EffectTargetsSubtype> {
     this.shortcut = options.shortcut
     this.effect = options.effect
     this.commandParameters = options.commandParameters
-    this.available = options.available
+    this.isAvailable = options.available
     this.do = options.do
     this.progress = options.progress
   }

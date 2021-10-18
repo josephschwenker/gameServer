@@ -6,14 +6,13 @@ The game map will be made up of square tiles transformed into a torus that behav
 
 Cities:
 Resources may be harvested at each layer, but cannot be convoyed to the city unless there is a road connection.
-Resources may not be convoyed to a city if the distance from the city exceeds 2 tiles. This distance limit does not carry over between layers.
 Cities have a population limit that may be raised by building facilities and researching technologies.
-The amount of resources harvested is proportional to the city's population: for example, a city with a total of 10 resources and a population of 1 may only receive 1/10 of the total resources, or 1 resource.
-Workers are not assigned to tiles manually. Instead, all resources with a road connection to the city are taken into account, then scaled by the total population of the city.
-Workers may riot. Rioting workers are subtracted from the population when calculating tile output. For example, a city with a population of 10/10 and 10 food, minerals, and credits but 2 rioting workers would only receive 80% of each resource: 8 food, 8 minerals, and 8 credits.
-Rioting workers may be nerve stapled under certain forms of government.
-Each resource harvested has the population modifier applied to it individually. For example, if a city with a population of 5/10 could harvest 10 food, 5 energy, and 20 minerals, then it will receive 5 food, 3 energy, and 10 minerals.
-After reaching full population, each additional population unit can harvest additional resources beyond what the tiles allow: for example, a city with 10 resources and a population of 15 may receive a 10% bonus on resources for each population unit past 10, or 15 total resources.
+Workers are assigned individually to one resource per tile. For example, a tile with 2 food and 3 minerals with a worker assigned to minerals would produce 3 minerals and 0 food.
+Workers may become Drones. Drones cannot be assigned to tiles.
+Drones may be nerve stapled under certain forms of government.
+Talents are highly-educated workers created by facilities, society modules, and high Morale. Each Talent improves the resource output of all tiles worked by a City. Certain society modules may lower or raise this bonus. For example, Psychosocial Fascism will lower this bonus.
+Workers, Drones, and Talents all have faces, head gear, and animations that represent their emotions and role.
+The sum of Workers, Talents, and Drones is equal to the City's Population.
 Tiles in different layers cannot be joined with a road connection directly; the tiles in one layer must first be connected to a transporter, which then connects to the city directly above or below.
 Transporters share resources with cities and other transporters directly above and below them.
 Building a transporter above or below a city may unlock new city facilities for construction.
@@ -84,13 +83,13 @@ The player's gameplay decisions will alter their population's ideological belief
 The strength of each modifier is proportional to the amount of the population that holds the corresponding ideology.
 Not all modifiers are linear: for example, if Individualists exceed 75% of the population, economic output may be reduced.
 Each demographic group has an opposite.
-Low MORALE and ECONOMY both cause demographic groups to become more fragmented and extreme.
-MORALE and ECONOMY from society modules, facilities, units, and tile improvements are calculated first, and these values are then modified by demographic groups to produce the final values.
-The final MORALE and ECONOMY calculations are used to determine how demographic groups develop; this may cause feedback resulting in cascading changes.
+Low MORALE cause demographic groups to become more fragmented and extreme.
+MORALE from society modules, facilities, units, and tile improvements is calculated first, and this value is then modified by demographic groups to produce the final values.
+The final MORALE calculation is used to determine how demographic groups develop; this may cause feedback resulting in cascading changes.
 Extreme demographic groups confer worse modifiers than standard demographic groups.
 High MORALE will cause existing demographic groups to gradually convert to groups corresponding to the player's society module choices.
 Extremist groups take longer to convert to desirable groups.
-//Demographic groups only provide bonuses if the player's society module choices align with their values.
+Demographic groups only provide their maximum bonus if the player's society module choices align with their values.
 
 POPULATION:
 Population grows at a rate proportional to the product of ECONOMY and MORALE.
@@ -141,6 +140,10 @@ Science is funded by credits.
 Facilities may increase the per-credit effiency of scientific research.
 Modifiers to SCIENCE alter the efficiency of credits allocated to science. For example, a Biology Lab may multiply credits toward research by 1.25.
 The amount of credits put into SCIENCE rather than held on reserve can be modified by a slider.
+
+MORALE:
+Morale represents a city's wellbeing, including its citizens' health, education, and happiness.
+Morale provides a small bonus or penalty to all society modifiers except Morale itself.
 
 Interface:
 The player may have simple conversations with the advisors for each gameplay mechanic.
