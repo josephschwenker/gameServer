@@ -1,0 +1,17 @@
+class Personality {
+  dimensions: {
+    extroversion: number
+    // more likely to participate in diplomacy
+    agreeableness: number
+    // more favorable relations, better diplomatic outcomes, less aggressive, more likely to run democracy
+    opennness: number
+    // more focus on research
+    conscientiousness: number
+    // less likely to change production, unit orders, break or forge alliances, ceasefires
+    sanity: number
+    // reduces random spread factor for all actions
+  }
+  loves: []
+  // society modules, tax rates, military strength, structures
+  hates: []
+}

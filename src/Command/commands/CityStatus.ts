@@ -1,7 +1,7 @@
 import Fraction from '../../utility/Fraction'
-import Status from '../Status'
+import Command from '../Command'
 
-class CityStatus extends Status {
+class CityStatus extends Command {
   constructor (options) {
     super(
       {

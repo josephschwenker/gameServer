@@ -1,8 +1,8 @@
 TODO
 	Convert to model-view-controller
 	Port Model to Node.js
-	Use immutable data types in Model
-	Port View to React
+	Port View to React and Sass/SCSS
+	Query server using GraphQL
 	
 	Do not display "next unit" while base control open
 	Animations on units when moving:

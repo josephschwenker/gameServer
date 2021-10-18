@@ -14,7 +14,7 @@ class Game {
   }
 
   private readonly map: GameMap
-// private activePiece: Piece | undefined
+  // private activePiece: Piece | undefined
   // #nodeMap : NodeMap
   private turn: number = 0
   private units: List<Unit> = new List<Unit>()

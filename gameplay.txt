@@ -31,6 +31,9 @@ Military structures modify fog of war, attack bonuses, defense bonuses, and prov
 Miscellaneous structures include transporters and habitation domes, and generally provide bonuses to their respective cities similar to a facility.
 Structures must be connected to a city tile, either directly or indirectly.
 Structures of different classes may stack. For example, transportation structures like roads may stack on top of industrial structures like hydrocultures.
+Engineers build tile features.
+Engineers may be commanded to build tile features manually, like in Alpha Centauri, or automatically, by either setting rules per tile globally or by assigning tile feature targets for each tile individually through a Terraform screen.
+By default, formers will prioritize road construction first (unless there are already paths connecting this city to all others), then tile feature construction within their home city's tiles, and then tile feature construction within other cities, with closer ones given preference.
 
 Structures must be built by aquaformer/aeroformer.
 Structures have no intial cost nor upkeep.
@@ -54,6 +57,7 @@ Units may be garrisonned within a city to defend against attack.
 Units may function as police, preventing riots and emigration if the player's society modules permit this.
 Units may be assigned to a fleet, in which case they will move and receive orders in unison, but no quicker than the speed of the slowest unit.
 At the beginning of each turn, all military units must move before any non-military units.
+Each form of government will have its own unit chassis designs for light infantry.
 
 Technology:
 The technology tree will allow the player to unlock additional technologies.

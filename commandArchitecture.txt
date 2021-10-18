@@ -1,0 +1,181 @@
+Game.commandQueue = List<Command>
+Game.commandQueue.filter(
+  (command) => command instanceof NonMilitaryCommand
+)
+.forEach(
+  (command) => {
+    command.do()
+  }
+)
+
+class FlotationFarm extends EngineerBuildCommand {
+  ...
+  do(): Game {
+    this.unit.assignedTo = ...
+    this.tile.tileFeatures.structure.unfinished...
+  }
+}
+
+Game.commandQueue.push(
+  new FlotationFarm(
+    {
+      game: Game,
+      unit: Unit,
+      tile: Tile
+    }
+  )
+)
+
+Game {
+  commandQueue: {
+    military: []
+    nonMilitary: []
+    city: []
+  }
+}
+
+new EngineerBuildCommand(
+  {
+    unit: Engineer
+    game: Game
+    tileFeature: TileFeature
+
+  }
+  do() => {
+
+  }
+)
+
+Engineer {
+  commands: {
+    Flotation Hydro
+    Flotation Foundry
+  }
+}
+
+Command
+  UnitCommand
+    MoveCommand
+      Moving to (3, 5, 0) (3 turns)
+    IdleCommand
+      Cancel Orders / Awaiting Orders
+    HoldCommand
+      Holding Position
+    DisbandCommand
+      Disbanding Unit (1 turn)
+    ColonyPodCommand
+      Establishing City (1 turn)
+    MilitaryCommand
+      SentryCommand
+        Sentrying
+      GarrisonCommand
+        Garrisonning
+      AttackCommand
+        Attacking (3, 5, 0) [Engage on Sight] {57% Success, 90% Friendly Casualties, 100% Enemy Casualties}
+    EngineerCommand
+      FlotationHydroponicsCommand
+        Constructing Flotation Hydroponics (2 turns)
+      FlotationFoundryCommand
+        Constructing Flotation Foundry (3 turns)
+      RaiseTerrainCommand
+        Raising Terrain (9 turns)
+      DeconstructCommand
+        Deconstructing Nanoassembler (1 turn)
+  CityCommand
+    No Production
+    Constructing Industrial Base (3 turns)
+
+Command {
+  do: (any, Game): Game
+  available(any, Game): boolean
+  effect: Effect
+  shortcut: KeyboardShortcut | undefined
+  icon: string // disband.png
+  verb: string // Establish Base
+  gerund: string // Establishing Base
+}
+
+KeyboardShortcut {
+  ctrl: boolean
+  shift: boolean
+  alt: boolean
+  key: KeyboardKey
+  constructor(options) {
+
+  }
+}
+
+KeyboardKey {
+  key: string
+  constructor(key) {
+    if (...validation logic) {
+
+    } else {
+      never?
+    }
+  }
+}
+
+class EngineerCommand implements UnitCommand {
+  tileFeature: TileFeature
+  constructor(
+    tileFeature: tileFeature,
+    infinitive: string
+    gerund: string
+  ) {
+    
+  }
+  do: (engineer: Unit, game: Game): void => {
+
+  }
+  verb: `Construct ${string}`
+}
+
+CityCommand implements Command {
+  do: (City, Game): void
+  effect: TileEffect
+}
+
+City
+  CityCommandList:
+    Construct Industrial Base
+    Construct Pod Skimmer
+    Raze
+    <Sentinel: No Production>
+
+Frontend
+  Open Base Control
+  Layer Up
+  Layer Down
+
+IdleStatus {
+  name: "Awaiting Orders"
+  effect: UnitEffect
+  icon: "awaitingOrders.png"
+}
+
+NoProduction {
+  name: "No Production"
+  effect: TileEffect
+  icon: "noProduction.png"
+}
+
+NonIdleStatus {
+  ${verb}
+  ${verb} ${coordinate.toString()}
+}
+
+MoveStatus {
+  name: (c: ValidCoordinate) => `Moving to ${c.toString()}`
+  icon: "moving.png"
+  effect: UnitEffect
+}
+
+AttackMove {
+  static gerundName: (c: ValidCoordinate) => `Attacking ${c.toString() without moving}
+  static infinitiveName: (c: ValidCoordinate) => `Attack ${c.toString() without moving}`
+  icon: "attack.png"
+  effect: UnitEffect
+}
+
+myUnit.statuses[0].gerundName(myUnit.statuses[0].parameters)

@@ -5,10 +5,10 @@ export class Effect<
   EffectParametersSubtype extends EffectParameters,
   EffectTargetsSubtype extends EffectTargets,
 > {
-  name: string
-  description: string
-  icon: string
-  targets: EffectTargetsSubtype
+  readonly name: string
+  readonly description: string
+  readonly icon: string
+  readonly targets: EffectTargetsSubtype
 
   constructor (
     options: {

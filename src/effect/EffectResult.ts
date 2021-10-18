@@ -1,7 +1,7 @@
 import { EffectResultModifier, EffectTargets } from './EffectTypes'
 
 class EffectResult<EffectTargetsSubtype extends EffectTargets> {
-  targets: { [key in keyof EffectTargetsSubtype]: EffectResultModifier }
+  readonly targets: { [key in keyof EffectTargetsSubtype]: EffectResultModifier }
 
   constructor (
     targets: { [key in keyof EffectTargetsSubtype]: EffectResultModifier }
